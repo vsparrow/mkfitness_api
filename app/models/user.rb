@@ -1,3 +1,6 @@
 class User < ApplicationRecord
-  has_many :sugar
+  has_many :sugars
+  has_many :carbs
+  has_many :ellipticals
+  has_many :weights
 end
