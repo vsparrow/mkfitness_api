@@ -1,0 +1,2 @@
+class Carb < ApplicationRecord
+end
