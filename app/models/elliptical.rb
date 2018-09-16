@@ -1,0 +1,2 @@
+class Elliptical < ApplicationRecord
+end
