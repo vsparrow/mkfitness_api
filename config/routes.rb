@@ -5,5 +5,6 @@ Rails.application.routes.draw do
     resources :sugars , :only => [:index, :show, :create]
     resources :carbs , :only => [:index, :show, :create]
     resources :weights , :only => [:index, :show, :create]
+    resources :lifts , :only => [:index, :show, :create]
   end
 end
