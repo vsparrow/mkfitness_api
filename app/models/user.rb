@@ -4,4 +4,5 @@ class User < ApplicationRecord
   has_many :ellipticals
   has_many :weights
   has_many :lifts
+  has_many :waist_sizes
 end
