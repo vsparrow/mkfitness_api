@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   resources :users , :only => [:index, :show, :create] do
     resources :ellipticals , :only => [:index, :show, :create]
     resources :sugars , :only => [:index, :show, :create]
+    resources :carbs , :only => [:index, :show, :create]
   end
 end
