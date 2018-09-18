@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     params.permit(:firstname, :lastname, :username)
   end
 
-  def set_users
+  def set_user
     @user = User.find(params[:id])
   end
 end #UsersController
