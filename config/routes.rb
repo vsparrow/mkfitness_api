@@ -6,5 +6,6 @@ Rails.application.routes.draw do
     resources :carbs , :only => [:index, :show, :create]
     resources :weights , :only => [:index, :show, :create]
     resources :lifts , :only => [:index, :show, :create]
+    resources :waist_sizes , :only => [:index, :show, :create]
   end
 end
