@@ -1,6 +1,6 @@
 class WeightsController < ApplicationController
   before_action :set_user
-  before_action :set_user_weight, only: [:show]
+  before_action :set_user_weight, only: [:show, :update]
 
   #GET /users/:user_id/weights
   def index
@@ -16,6 +16,11 @@ class WeightsController < ApplicationController
   def create
     @user.weights.create!(weight_params)
     json_response(@user, :created)
+  end
+
+  def update
+    @weight.update(weight_params)
+    head :no_content
   end
 
   private
