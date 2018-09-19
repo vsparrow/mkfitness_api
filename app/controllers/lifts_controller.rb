@@ -1,6 +1,6 @@
 class LiftsController < ApplicationController
   before_action :set_user
-  before_action :set_user_lift, only: [:show]
+  before_action :set_user_lift, only: [:show, :update]
 
   #GET /users/:user_id/lifts
   def index
@@ -16,6 +16,11 @@ class LiftsController < ApplicationController
   def create
     @user.lifts.create!(lift_params)
     json_response(@user, :created)
+  end
+
+  def update
+    @lift.update(lift_params)
+    head :no_content
   end
 
   private
