@@ -1,6 +1,6 @@
 class CarbsController < ApplicationController
   before_action :set_user
-  before_action :set_user_carb, only: [:show]
+  before_action :set_user_carb, only: [:show, :update]
 
   #GET /users/:user_id/carbs
   def index
@@ -16,6 +16,11 @@ class CarbsController < ApplicationController
   def create
     @user.carbs.create!(carb_params)
     json_response(@user, :created)
+  end
+
+  def update
+    @carb.update(carb_params)
+    head :no_content
   end
 
   private
