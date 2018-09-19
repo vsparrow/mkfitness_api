@@ -1,6 +1,6 @@
 class EllipticalsController < ApplicationController
   before_action :set_user
-  before_action :set_user_elliptical, only: [:show]
+  before_action :set_user_elliptical, only: [:show, :update]
 
   #GET /users/:user_id/ellipticals
   def index
@@ -16,6 +16,11 @@ class EllipticalsController < ApplicationController
   def create
     @user.ellipticals.create!(elliptical_params)
     json_response(@user, :created)
+  end
+
+  def update
+    @elliptical.update(elliptical_params)
+    head :no_content
   end
 
   private
