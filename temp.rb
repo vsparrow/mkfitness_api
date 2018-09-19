@@ -55,6 +55,8 @@ note = ""
 stop_eat_at_x = true
 minutes = 30
 distance = 0
+ate_sugar = false
+carbs_time_stopped_eating = "6pm"
 while counter < 20 do
 
          # Time.new(2001,2,3).to_date
@@ -65,8 +67,10 @@ while counter < 20 do
   minutes = get_elliptical_minutes(date)
   distance = get_elliptical_distance(date)
   puts " today is #{get_day_of_week(date)} and distance is #{distance} and minutes is #{minutes}"
-  # if Friday (shoulder day), cheat meals, eat after 6pm ok
+  # if Friday , cheat meals, eat after 6pm ok
   get_day_of_week(date) == "Friday" ? stop_eat_at_x = false : stop_eat_at_x = true
+  get_day_of_week(date) == "Friday" ? carbs_time_stopped_eating = "11pm" : carbs_time_stopped_eating = "6pm"
+  get_day_of_week(date) == "Friday" ? ate_sugar = true : ate_sugar = false
   waist = waist - 0.05
   weight = weight - 0.3
   date += 1
