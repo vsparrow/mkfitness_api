@@ -5,6 +5,15 @@ def get_day_of_week(date)
   date.strftime('%A')
 end
 
+def get_elliptical_minutes(date)
+  today = get_day_of_week(date)
+  minutes = 30
+  if(today == "Saturday" || today == "Sunday")
+    minutes = 0
+  end
+  minutes
+end
+
 def get_elliptical_distance(date)
   today = get_day_of_week(date)
   distance = 3 # miles
@@ -44,6 +53,7 @@ waist = 50
 date = Time.new(2018,3,5).to_date
 note = ""
 stop_eat_at_x = true
+minutes = 30
 distance = 0
 while counter < 20 do
 
@@ -52,8 +62,9 @@ while counter < 20 do
   # puts "weight is #{weight}"
   note = get_note(date)
   # puts note
+  minutes = get_elliptical_minutes(date)
   distance = get_elliptical_distance(date)
-  puts " today is #{get_day_of_week(date)} and distance is #{distance}"
+  puts " today is #{get_day_of_week(date)} and distance is #{distance} and minutes is #{minutes}"
   # if Friday (shoulder day), cheat meals, eat after 6pm ok
   get_day_of_week(date) == "Friday" ? stop_eat_at_x = false : stop_eat_at_x = true
   waist = waist - 0.05
