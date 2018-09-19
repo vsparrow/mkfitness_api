@@ -1,6 +1,6 @@
 class SugarsController < ApplicationController
   before_action :set_user
-  before_action :set_user_sugar, only: [:show]
+  before_action :set_user_sugar, only: [:show, :update]
 
   #GET /users/:user_id/sugars
   def index
@@ -17,6 +17,12 @@ class SugarsController < ApplicationController
     @user.sugars.create!(sugar_params)
     json_response(@user, :created)
   end
+
+  def update
+    @sugar.update(sugar_params)
+    head :no_content
+  end
+
 
   private
   def sugar_params
