@@ -1,6 +1,6 @@
 class WaistSizesController < ApplicationController
   before_action :set_user
-  before_action :set_user_waist_size, only: [:show, :update]
+  before_action :set_user_waist_size, only: [:show]
 
   #GET /users/:user_id/waist_sizes
   def index
@@ -16,11 +16,6 @@ class WaistSizesController < ApplicationController
   def create
     @user.waist_sizes.create!(waist_size_params)
     json_response(@user, :created)
-  end
-
-  def update
-    @waist_size.update(waist_size_params)
-    head :no_content
   end
 
   private
